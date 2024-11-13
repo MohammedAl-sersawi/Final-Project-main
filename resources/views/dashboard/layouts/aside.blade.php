@@ -321,7 +321,8 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="kt-menu__item " aria-haspopup="true"><a href="{{ route('doctor.chats.index') }}" class="kt-menu__link ">
+                    <li class="kt-menu__item " aria-haspopup="true"><a href="{{ route('doctor.chats.index') }}"
+                            class="kt-menu__link ">
                             <i class="kt-menu__link-icon flaticon-chat-1"></i>
                             <span class="kt-menu__link-text">{{ __('dashboard.chats') }}</span></a></li>
                 </ul>

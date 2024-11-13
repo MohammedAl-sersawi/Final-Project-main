@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MessageCreated;
+use App\Models\Conversation;
+use App\Models\Doctor;
 use App\Models\Message;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
+use Throwable;
 
 class MessageController extends Controller
 {
@@ -14,49 +20,106 @@ class MessageController extends Controller
      */
     public function index($id)
     {
+        $receiver_id = $id;
         $user = Auth::user();
-        $conversation = $user->conversations()->findOrFail($id);
-        return $conversation->messaes()->get();
+        // $conversation = null;
+        if ($user instanceof Doctor) {
+            $participant = Patient::FindOrFail($receiver_id);
+            $conversation = Conversation::where(function ($query) use ($user, $participant) {
+                $query->where('patient_id', $participant->id)
+                    ->where('doctor_id', $user->id);
+            })->first();
+        } elseif ($user instanceof Patient) {
+            $participant = Doctor::FindOrFail($receiver_id);
+            $conversation = Conversation::where(function ($query) use ($user, $participant) {
+                $query->where('doctor_id', $participant->id)
+                    ->where('patient_id', $user->id);
+            })->first();
+        }
+
+        $messages = $conversation->messages;
+
+        $messages->each(function ($message) {
+            $message->sender_name = $message->sender->trans_full_name;
+            $message->sender_avatar = $message->sender->image ?? 'default-avatar.png';
+            $message->created  = str_replace(
+                ['minutes', 'seconds', 'minute', 'second'],
+                ['min', 'sec', 'min', 'sec'],
+                $message->created_at->diffForHumans()
+            );
+        });
+        return response()->json([
+            'data' => $messages,
+            'conversation' => $conversation,
+            'user_type' => get_class($user),
+            'user_id' => $user->id,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
-        $request->validate([
-            'message' => ['required', 'string'],
-            'conversation_id' => [
-                Rule::requiredIf(function () use ($request) {
-                    return !$request->user_id;
-                }),
-                'int',
-                'exists:conversations,id'
-            ],
-            'patient_id' => [
-                Rule::requiredIf(function () use ($request) {
-                    return !$request->conversation_id;
-                }),
-                'int',
-                'exists:patient,id'
-            ]
-        ]);
-    }
+        $sender = auth::user();
+        $guard = Auth::guard()->name;
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Message $message)
-    {
-        //
-    }
+        if ($guard == 'doctor') {
+            $request->validate([
+                'message' => ['required', 'string'],
+                'receiver_id' => ['required']
+            ]);
+            $receiver = Patient::findOrFail($request->receiver_id);
+        } elseif ($guard == 'web') {
+            $request->validate([
+                'message' => ['required', 'string'],
+                'receiver_id' => ['required']
+            ]);
+            $receiver = Doctor::findOrFail($request->receiver_id);
+        }
+        DB::beginTransaction();
+        try {
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Message $message)
-    {
-        //
+            $conversation = Conversation::where(function ($query) use ($sender, $receiver) {
+                $query->where('doctor_id', $sender->id)
+                    ->where('patient_id', $receiver->id);
+            })->orWhere(function ($query) use ($sender, $receiver) {
+                $query->where('doctor_id', $receiver->id)
+                    ->where('patient_id', $sender->id);
+            })->first();
+
+            if (!$conversation) {
+                if ($guard == 'doctor') {
+                    $conversation = Conversation::create([
+                        'doctor_id' => $sender->id, // تأكد أن الحقل يمثل المرسل الصحيح
+                        'patient_id' => $receiver->id, // تأكد أن الحقل يمثل المستقبل الصحيح
+                    ]);
+                } elseif ($guard == 'web') {
+                    $conversation = Conversation::create([
+                        'doctor_id' => $receiver->id,
+                        'patient_id' => $sender->id,
+                    ]);
+                }
+            }
+            $message = $conversation->messages()->create([
+                'sender_id' => $sender->id,
+                'sender_type' => get_class($sender),
+                'receiver_id' => $receiver->id,
+                'receiver_type' => get_class($receiver),
+                'body' => $request->message,
+            ]);
+            $conversation->update([
+                'last_message_id' => $message->id,
+            ]);
+            DB::commit();
+            broadcast(new MessageCreated($message));
+            $message->sender_name = $message->sender->trans_full_name;
+            $message->sender_avatar = $message->sender->image ?? 'default-avatar.png';
+        } catch (Throwable $e) {
+            DB::rollBack();
+            throw $e;
+        }
+        return  response()->json($message);
     }
 
     /**

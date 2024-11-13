@@ -12,6 +12,7 @@ use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LapController;
 use App\Http\Controllers\MedicineController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PharmacistController;
 use App\Http\Controllers\PharmacyController;
@@ -85,7 +86,12 @@ Route::group(
                 route::post('/appointments/{id}/update-status', [AppointmentController::class, 'updateStatus'])->name('appointments.updateStatus');
                 route::resource('/diagnoses', DiagnosisController::class);
                 Route::get('/get-medicines', [MedicineController::class, 'getMedicines'])->name('medicines.get');
-                route::resource('/chats', ConversationController::class);
+                route::prefix('/chats')->name('chats.')->group(function () {
+                    // route::get('/', ConversationController::class, 'index')->name('index');
+                    Route::get('/', [ConversationController::class, 'index'])->name('index');
+                    Route::get('/{id}', [MessageController::class, 'index'])->name('messages.index');
+                    Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
+                });
             });
             route::prefix('/patient')->middleware('auth:web')->name('patient.')->group(function () {
                 Route::get('/', function () {

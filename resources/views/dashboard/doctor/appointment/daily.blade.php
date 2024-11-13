@@ -345,7 +345,6 @@
                 $('#diagnosisEn').val('');
                 $('.medicines-table tbody').empty();
             });
-
             function loadMedicines() {
                 $.ajax({
                     url: '{{ route('doctor.medicines.get') }}',

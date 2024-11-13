@@ -12,19 +12,32 @@ class ConversationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+
         $user = Auth::user();
-        $conversations = $user->conversations()->with(['messages', 'lastMessage', 'patient', 'doctor'])->get();
-        $messages = $conversations->first();
+        $conversations = $user->conversations()->with('lastMessage')->get();
 
-
-
-
-
-        dd( );
-
-        // return  view('dashboard.doctor.chat.index', compact('conversations', 'user', 'messages'));
+        $conversations->map(function ($conversation) {
+            $conversation->otherParticipant = $conversation->otherParticipant();
+            if ($conversation->lastMessage) {
+                $conversation->last_message_date =
+                    str_replace(
+                        ['minutes', 'seconds', 'minute', 'second'],
+                        ['min', 'sec', 'min', 'sec'],
+                        $conversation->lastMessage->created_at->diffForHumans()
+                    );
+            } else {
+                $conversation->last_message_date = null;
+            }
+            return $conversation;
+        });
+        if ($request->ajax()) {
+            return response()->json([
+                'data' => $conversations
+            ]);
+        }
+        return view('dashboard.doctor.chat.index', compact('conversations'));
     }
 
     /**

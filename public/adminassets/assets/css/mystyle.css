@@ -1,17 +1,21 @@
 .body {
     font-family: "Cairo", sans-serif !important;
 }
+
 /* Additional styles for Arabic layout */
 .text-right {
     text-align: right !important;
 }
+
 .rtl {
     direction: rtl;
     text-align: right;
 }
+
 table {
     direction: rtl;
 }
+
 table.table-bordered.dataTable th,
 table.table-bordered.dataTable td {
     border-right-width: 0;
@@ -40,12 +44,12 @@ table.dataTable thead .sorting_desc_disabled:after {
     left: 0.5em !important;
 }
 
-table.dataTable thead > tr > th.sorting_asc,
-table.dataTable thead > tr > th.sorting_desc,
-table.dataTable thead > tr > th.sorting,
-table.dataTable thead > tr > td.sorting_asc,
-table.dataTable thead > tr > td.sorting_desc,
-table.dataTable thead > tr > td.sorting {
+table.dataTable thead>tr>th.sorting_asc,
+table.dataTable thead>tr>th.sorting_desc,
+table.dataTable thead>tr>th.sorting,
+table.dataTable thead>tr>td.sorting_asc,
+table.dataTable thead>tr>td.sorting_desc,
+table.dataTable thead>tr>td.sorting {
     padding-right: 5px !important;
 }
 
@@ -57,8 +61,8 @@ div.dataTables_wrapper div.dataTables_info {
     flex-direction: row-reverse;
 }
 
-table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child,
-table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child {
+table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child,
+table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child {
     padding: 0 30px 0 0 !important;
 }
 
@@ -145,9 +149,10 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     margin-left: 15px;
 }
 
-.kt-nav .kt-nav__item > .kt-nav__link {
+.kt-nav .kt-nav__item>.kt-nav__link {
     flex-direction: row-reverse;
 }
+
 .kt-form .kt-portlet__body .row {
     flex-direction: row-reverse;
 }
@@ -167,9 +172,11 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 .col-form-label {
     text-align: right !important;
 }
+
 .input-group {
     flex-direction: row-reverse;
 }
+
 .input-group .input-group-append .input-group-text {
     border-radius: 0 4px 4px 0 !important;
     -webkit-border-radius: 0 4px 4px 0 !important;
@@ -177,6 +184,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     -ms-border-radius: 0 4px 4px 0 !important;
     -o-border-radius: 0 4px 4px 0 !important;
 }
+
 .input-group .form-control {
     border-radius: 4px 0 0 4px !important;
     -webkit-border-radius: 4px 0 0 4px !important;
@@ -184,9 +192,11 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     -ms-border-radius: 4px 0 0 4px !important;
     -o-border-radius: 4px 0 0 4px !important;
 }
+
 .kt-user-card {
     flex-direction: row-reverse;
 }
+
 #select {
     text-align: right !important;
 }
@@ -203,50 +213,71 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 .filter-option-inner-inner {
     text-align: right;
 }
+
 .la-angle-right {
     transform: scaleX(-1);
 }
-.kt-aside__brand .kt-aside__brand-tools .kt-aside__brand-aside-toggler > span {
+
+.kt-aside__brand .kt-aside__brand-tools .kt-aside__brand-aside-toggler>span {
     transform: scaleX(-1);
 }
+
 .kt-portlet .kt-portlet__head .kt-portlet__head-toolbar .nav-tabs {
     margin: 0;
     flex-direction: row-reverse;
 }
+
 .kt-grid.kt-grid--ver-desktop.kt-grid--desktop {
 
-    flex-direction: row-reverse ;
-}
-
-.kt-widget__item{
     flex-direction: row-reverse;
 }
- .kt-widget__info{
+
+.kt-widget__item {
+    flex-direction: row-reverse;
+}
+
+.kt-widget__info {
     display: flex;
-     flex-direction: column;
+    flex-direction: column;
     justify-content: center;
     align-items: end;
- }
-.kt-widget__section
-{
+}
+
+.kt-widget__section {
     flex-direction: row-reverse;
 }
- .kt-chat__head{
+
+.kt-chat__head {
     flex-direction: row-reverse !important;
- }
-.kt-chat__user
-{
+}
+
+.kt-chat__user {
     flex-direction: row-reverse;
 
-}.kt-chat__message{
+}
+
+.kt-chat__message {
     text-align: left !important;
 }
 
-.kt-chat__message--right{
+.kt-chat__message--right {
     text-align: right !important;
 }
-.kt-chat__toolbar{    flex-direction: row-reverse;
+
+.kt-chat__toolbar {
+    flex-direction: row-reverse;
 }
-.kt-chat__editor textarea{
+
+.kt-chat__editor textarea {
     direction: rtl;
+}
+
+.kt-chat .kt-chat__messages .kt-chat__message .kt-chat__text {
+    padding: 1.1rem 3.5rem 1.1rem 1.6rem !important;
+
+}
+
+.kt-chat .kt-chat__messages .kt-chat__message.kt-chat__message--right .kt-chat__text {
+    text-align: left;
+    padding: 1.1rem 1.6rem 1.1rem 3.5rem !important;
 }

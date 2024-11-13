@@ -127,7 +127,4 @@ trait Trans
         }
         return $this->description;
     }
-
-
-  
 }

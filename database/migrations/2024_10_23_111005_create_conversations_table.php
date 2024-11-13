@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('patient_id')->constrained('patients')->nullOnDelete();
             $table->foreignId('doctor_id')->constrained('doctors')->nullOnDelete();
-            $table->foreignId('last_message_id')->constrained('messages')->nullOnDelete();
+            $table->foreignId('last_message_id')->nullable()->constrained('messages')->nullOnDelete();
             $table->unique(['patient_id', 'doctor_id']);
             $table->timestamps();
         });

@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Conversation extends Model
 {
     use HasFactory;
+    protected $guarded = [];
     public function patient()
     {
         return $this->belongsTo(Patient::class);
@@ -20,28 +22,32 @@ class Conversation extends Model
 
     public function messages()
     {
-        return $this->hasMany(Message::class)
-            ->latest();
+        return $this->hasMany(Message::class);
     }
     public function lastMessage()
     {
         return $this->belongsTo(Message::class, 'last_message_id')
             ->withDefault();
     }
-
-
-  
-
-    public function otherParticipant($currentUser)
+    public function otherParticipant()
     {
+        $currentUser = Auth::user();
         if ($currentUser instanceof Doctor) {
-            return $this->patient; // عرض المريض في حالة كان المستخدم الحالي طبيبًا
+            $participant = $this->patient;
+            $type = 'patients';
+        } elseif ($currentUser instanceof Patient) {
+            $participant = $this->doctor;
+            $type = 'doctors';
         }
+        $unreadMessagesCount = $currentUser->unreadMessagesInConversation($this->id);
 
-        if ($currentUser instanceof Patient) {
-            return $this->doctor; // عرض الطبيب في حالة كان المستخدم الحالي مريضًا
-        }
-
-        return null;
+        return [
+            'id' => $participant->id,
+            'name' => $participant->trans_full_name,
+            'image' => $participant->image
+                ? asset('uploads/' . $type . '/' . $participant->image)
+                : 'https://ui-avatars.com/api/?background=random&name=' . urlencode($participant->trans_full_name),
+            'unread_messages_count' => $unreadMessagesCount,
+        ];
     }
 }
