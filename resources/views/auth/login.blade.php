@@ -58,6 +58,8 @@
                         <option selected disabled>اختار من القائمة</option>
                         <option value="admin">الدخول كمدير</option>
                         <option value="doctor">الدخول كطبيب</option>
+                        <option value="pharmacist">الدخول كصيدلي</option>
+                        <option value="lap">الدخول كعامل</option>
                         <option value="patient">الدخول كمريض</option>
                     </select>
                 </div>
@@ -114,14 +116,68 @@
                 </form>
                 <!--end::Form-->
                 <!--begin::Form-->
-                <form class="kt-form" method="POST" action="{{ route('login') }}" novalidate="novalidate" id="patient">
+                <form class="kt-form" method="POST" action="{{ route('login') }}" novalidate="novalidate" id="pharmacist">
+                    @csrf
+                    <input type="hidden" name="guard" value="pharmacist">
+                    <div class="kt-login__title">
+                        <h3>Sign In To Patient</h3>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="email" placeholder="Email" name="email" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" placeholder="Password" name="password"
+                            autocomplete="off">
+                    </div>
+                    <!--begin::Action-->
+                    <div class="kt-login__actions">
+                        <a href="{{ asset('adminassets/#') }}" class="kt-link kt-login__link-forgot">
+                            Forgot Password ?
+                        </a>
+                        <button type="submit" class="btn btn-primary btn-elevate kt-login__btn-primary">Sign
+                            In</button>
+                    </div>
+                    <!--end::Action-->
+                </form>
+                <!--end::Form-->
+                <!--begin::Form-->
+                <form class="kt-form" method="POST" action="{{ route('login') }}" novalidate="novalidate"
+                    id="patient">
                     @csrf
                     <input type="hidden" name="guard" value="web">
                     <div class="kt-login__title">
                         <h3>Sign In To Patient</h3>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="email" placeholder="Email" name="email" autocomplete="off">
+                        <input class="form-control" type="email" placeholder="Email" name="email"
+                            autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" placeholder="Password" name="password"
+                            autocomplete="off">
+                    </div>
+                    <!--begin::Action-->
+                    <div class="kt-login__actions">
+                        <a href="{{ asset('adminassets/#') }}" class="kt-link kt-login__link-forgot">
+                            Forgot Password ?
+                        </a>
+                        <button type="submit" class="btn btn-primary btn-elevate kt-login__btn-primary">Sign
+                            In</button>
+                    </div>
+                    <!--end::Action-->
+                </form>
+                <!--end::Form-->
+                <!--begin::Form-->
+                <form class="kt-form" method="POST" action="{{ route('login') }}" novalidate="novalidate"
+                    id="lap">
+                    @csrf
+                    <input type="hidden" name="guard" value="lap">
+                    <div class="kt-login__title">
+                        <h3>Sign In To Patient</h3>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="email" placeholder="Email" name="email"
+                            autocomplete="off">
                     </div>
                     <div class="form-group">
                         <input class="form-control" type="password" placeholder="Password" name="password"

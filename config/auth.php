@@ -48,6 +48,14 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
+        'pharmacist' => [
+            'driver' => 'session',
+            'provider' => 'pharmacists',
+        ],
+        'lap' => [
+            'driver' => 'session',
+            'provider' => 'laps',
+        ],
     ],
 
     /*
@@ -80,10 +88,14 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
         ],
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'pharmacists' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Pharmacist::class
+        ],
+        'laps' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Lap::class
+        ],
     ],
 
     /*

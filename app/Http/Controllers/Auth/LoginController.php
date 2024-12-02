@@ -33,6 +33,8 @@ class LoginController extends Controller
             return redirect('/dashboard/admin');
         } elseif (Auth::guard('doctor')->check()) {
             return redirect('/dashboard/doctor');
+        } elseif (Auth::guard('pharmacist')->check()) {
+            return redirect('/dashboard/pharmacist');
         } elseif (Auth::guard('web')->check()) {
             return redirect('/dashboard/patient');
         }
@@ -60,6 +62,8 @@ class LoginController extends Controller
                 return redirect('/dashboard/admin');
             } elseif (Auth::guard('doctor')->check()) {
                 return redirect('/dashboard/doctor');
+            } elseif (Auth::guard('pharmacist')->check()) {
+                return redirect('/dashboard/pharmacist');
             } elseif (Auth::guard('web')->check()) {
                 return redirect('/dashboard/patient');
             }

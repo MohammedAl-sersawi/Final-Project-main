@@ -15,9 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone');
-            $table->string('email');
-            $table->string('password');
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('location');
             $table->enum('type', ['internal', 'external']);
             $table->rememberToken();

@@ -12,6 +12,10 @@
                 <a href="{{ route('doctor.dashboard') }}">
                     <img alt="Logo" src="{{ asset('adminassets/assets/media/logos/logo-light.png') }}" />
                 </a>
+            @elseif(Auth::guard('pharmacist')->check())
+                <a href="{{ route('pharmacist.dashboard') }}">
+                    <img alt="Logo" src="{{ asset('adminassets/assets/media/logos/logo-light.png') }}" />
+                </a>
             @elseif (Auth::guard('web')->check())
                 <a href="{{ route('patient.dashboard') }}">
                     <img alt="Logo" src="{{ asset('adminassets/assets/media/logos/logo-light.png') }}" />
@@ -360,6 +364,8 @@
                         </div>
                     </li>
                 </ul>
+            @elseif (Auth::guard('pharmacist')->check())
+            @elseif (Auth::guard('lap')->check())
             @endif
         </div>
     </div>

@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('phone');
             $table->string('image')->nullable();
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
             $table->date('date_of_birth');
             $table->enum('gender', ['male', 'female'])->default('male');
             $table->foreignId('pharmacy_id')->onDelete('cascade');;

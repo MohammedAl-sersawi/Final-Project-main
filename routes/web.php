@@ -18,6 +18,7 @@ use App\Http\Controllers\PharmacistController;
 use App\Http\Controllers\PharmacyController;
 use App\Http\Controllers\PrescriptionController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SiteController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -103,18 +104,13 @@ Route::group(
                 route::get('/appointments/get-service-details/{serviceId}', [AppointmentController::class, 'getServiceDetails'])->name('appointments.getServiceDetails');
                 route::resource('/chats', ConversationController::class);
             });
-
-
-            // route::prefix('doctor')->group(function () {
-            //     Route::get('/', [App\Http\Controllers\Doctor\Dashboard\DoctorDashboardController::class, 'index'])->name('doctor.dashboard')->middleware('auth:doctor');
-            // });
-            // route::prefix('patient')->group(function () {
-            //     Route::get('/', [App\Http\Controllers\Patient\Dashboard\PatientDashboardController::class, 'index'])->name('patient.dashboard')->middleware('auth:web');
-            // });
+            route::prefix('/pharmacist')->middleware('auth:pharmacist')->name('pharmacist.')->group(function () {
+                Route::get('/', function () {
+                    return view('dashboard.pharmacist.index');
+                })->name('dashboard');
+            });
         });
-        Route::get('/', function () {
-            return view('web.index');
-        });
+        route::get('/', [SiteController::class, 'index']);
 
 
         // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

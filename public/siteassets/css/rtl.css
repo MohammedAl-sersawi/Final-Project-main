@@ -1,0 +1,193 @@
+body {
+    text-align: right;
+    direction: rtl;
+}
+
+.header-style-three .header-upper .nav-outer {
+    float: left !important;
+    padding-left: 0 !important;
+    padding-right: 60px;
+    display: flex;
+    flex-direction: row;
+}
+
+.logo-outer {
+    float: right !important;
+}
+
+.outer-box {
+    margin-left: 0 !important;
+    margin-right: 30px !important;
+
+}
+
+.social-box {
+    display: flex;
+    flex-direction: row;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-box {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.btn-box .services-btn {
+    background-color: #004cda !important;
+
+}
+
+.btn-box .services-btn:hover {
+    color: #004cda !important;
+    background-color: #ffffff !important;
+    border: 2px solid #004cda !important;
+}
+
+
+.health-section .content-column .border-line {
+
+    border-left: transparent !important;
+    border-right: 10px solid #004cd9;
+}
+
+.health-section .content-column .border-line:before {
+
+    right: 0px !important;
+    bottom: 0px !important;
+
+}
+
+.health-section .content-column .border-line:after {
+
+    left: 0px !important;
+    right: auto !important;
+    bottom: 0px;
+
+}
+
+
+
+
+.health-section .image-column .inner-column .image {
+    margin-left: 0 !important;
+    margin-right: -80px !important;
+}
+
+.health-section .image-column .inner-column:before {
+    left: 0px;
+    right: auto;
+}
+
+
+.feature-block .inner-box .upper-box .icon {
+    right: 0px;
+    left: auto;
+}
+
+.feature-block .inner-box .upper-box {
+    padding-left: 0;
+    padding-right: 50px;
+}
+
+.feature-block .inner-box .upper-box h3 {
+    left: 0;
+}
+
+.department-section-three:before {
+
+    right: 40%;
+    left: 0px;
+}
+
+
+.department-section-three .image-layer {
+    position: absolute;
+    left: auto;
+    right: 0;
+    top: 0px;
+
+}
+
+.department-section-three .department-tabs .tabs-content {
+    position: relative;
+    padding-left: 0;
+    padding-right: 120px;
+}
+
+
+.department-section-three .department-tabs .tab-btns .tab-btn:before,
+.department-section-three .department-tabs .active-btn .active-btn:before {
+    right: 0px;
+    left: auto;
+    border-radius: 50PX 0 50PX 50PX !important;
+    -webkit-border-radius: 50PX 0 50PX 50PX !important;
+    -moz-border-radius: 50PX 0 50PX 50PX !important;
+    -ms-border-radius: 50PX 0 50PX 50PX !important;
+    -o-border-radius: 50PX 0 50PX 50PX !important;
+    color: black;
+}
+
+.department-section-three .department-tabs .tab-btns .tab-btn {
+    border-radius: 50PX 0 50PX 50PX !important;
+    -webkit-border-radius: 50PX 0 50PX 50PX !important;
+    -moz-border-radius: 50PX 0 50PX 50PX !important;
+    -ms-border-radius: 50PX 0 50PX 50PX !important;
+    -o-border-radius: 50PX 0 50PX 50PX !important;
+}
+
+.appointment-section-two .form-column .inner-column {
+    padding-right: 0;
+    padding-left: 45px;
+}
+
+.appointment-section-two .image-column .inner-column {
+    padding-left: 0;
+    padding-right: 60px;
+
+}
+
+.appointment-form .form-group .icon {
+    right: auto;
+    left: 10px;
+}
+
+.appointment-form .form-group input {
+    text-align: right;
+}
+
+.main-footer .footer-widget .footer-title .separator:after {
+    right: auto;
+    left: -15px;
+}
+
+.main-footer .footer-list li a {
+    padding-left: 0;
+    padding-right: 30px;
+}
+
+.main-footer .footer-list li a:before {
+    right: 0;
+    left: auto;
+}
+
+.news-widget-block .widget-inner {
+    padding-left: 0;
+    padding-right: 110px;
+
+}
+
+.news-widget-block .widget-inner .image,
+.main-footer .contact-list li .icon {
+    right: 0;
+    left: auto;
+}
+
+.main-footer .contact-list li {
+    padding-left: 0;
+    padding-right: 70px;
+}
