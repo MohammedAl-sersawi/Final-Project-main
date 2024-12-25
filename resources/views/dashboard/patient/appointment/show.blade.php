@@ -151,30 +151,23 @@
                                                                     <thead>
                                                                         <tr>
                                                                             <th>#</th>
-                                                                            <th>First Name</th>
-                                                                            <th>Last Name</th>
-                                                                            <th>Username</th>
+                                                                            <th>name</th>
+                                                                            <th>dosage</th>
+                                                                            <th>frequency</th>
+                                                                            <th>description</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
-                                                                        <tr>
-                                                                            <th scope="row">1</th>
-                                                                            <td>Jhon</td>
-                                                                            <td>Stone</td>
-                                                                            <td>@jhon</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th scope="row">2</th>
-                                                                            <td>Lisa</td>
-                                                                            <td>Nilson</td>
-                                                                            <td>@lisa</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th scope="row">3</th>
-                                                                            <td>Larry</td>
-                                                                            <td>the Bird</td>
-                                                                            <td>@twitter</td>
-                                                                        </tr>
+
+                                                                        @foreach ($medicines as $medicine)
+                                                                            <tr>
+                                                                                <th scope="row">1</th>
+                                                                                <td>{{ $medicine->name }}</td>
+                                                                                <td>{{ $medicine->pivot->dosage }}</td>
+                                                                                <td>{{ $medicine->pivot->frequency }}</td>
+                                                                                <td>{{ $medicine->pivot->description }}</td>
+                                                                            </tr>
+                                                                        @endforeach
                                                                     </tbody>
                                                                 </table>
                                                             </div>

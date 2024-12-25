@@ -10,8 +10,8 @@ class Diagnosis extends Model
 {
     use HasFactory, Trans;
     protected $guarded = [];
-    public function treatment()
+    public function appointment()
     {
-        return $this->hasOne(Treatment::class);
+        return $this->belongsTo(Appointment::class);
     }
 }

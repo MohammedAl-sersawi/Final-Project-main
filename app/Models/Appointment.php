@@ -34,4 +34,8 @@ class Appointment extends Model
     {
         return $this->hasOne(Treatment::class);
     }
+    public function diagnosis()
+    {
+        return $this->hasOne(Diagnosis::class);
+    }
 }

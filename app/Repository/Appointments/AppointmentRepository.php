@@ -146,7 +146,9 @@ class AppointmentRepository implements AppointmentRepositoryInterface
     public function show($id)
     {
         $appointment = Appointment::findOrFail($id);
-        return view('dashboard.patient.appointment.show');
+        $medicines = $appointment->treatment->medicines;
+        $diagnosis = $appointment->diagnosis;
+        return view('dashboard.patient.appointment.show', compact(['appointment', 'medicines']));
     }
     public function update($request, $id) {}
     public function dailyAppointments($request)

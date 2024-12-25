@@ -17,10 +17,7 @@ class Treatment extends Model
             ->withTimestamps();
     }
 
-    public function diagnosis()
-    {
-        return $this->belongsTo(Diagnosis::class);
-    }
+
     public function appointment()
     {
         return $this->belongsTo(Appointment::class);
