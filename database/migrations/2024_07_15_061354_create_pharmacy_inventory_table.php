@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('pharmacy_id');
             $table->foreignId('medicine_id');
             $table->integer('quantity');
-            $table->date('expire');
             $table->timestamps();
         });
     }

@@ -105,7 +105,6 @@ class DatabaseSeeder extends Seeder
 
 
         Pharmacist::create([
-
             'first_name' => json_encode([
                 'en' => 'Alhassan',
                 'ar' => 'الحسن',

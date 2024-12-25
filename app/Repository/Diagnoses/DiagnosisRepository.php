@@ -33,7 +33,6 @@ class DiagnosisRepository implements DiagnosisRepositoryInterface
                 'appointment_id' => $appointment_id,
                 'date' => now(),
             ]);
-
             $treatment = Treatment::create([
                 'patient_id' => $request->patient_id,
                 'doctor_id' => $doctorId,

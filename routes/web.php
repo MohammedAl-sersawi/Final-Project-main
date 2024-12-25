@@ -16,6 +16,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PharmacistController;
 use App\Http\Controllers\PharmacyController;
+use App\Http\Controllers\PharmacyInventoryController;
 use App\Http\Controllers\PrescriptionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SiteController;
@@ -108,6 +109,8 @@ Route::group(
                 Route::get('/', function () {
                     return view('dashboard.pharmacist.index');
                 })->name('dashboard');
+                Route::get('/get-medicines', [MedicineController::class, 'getMedicines'])->name('medicines.get');
+                route::resource('medicines', PharmacyInventoryController::class);
             });
         });
         route::get('/', [SiteController::class, 'index']);

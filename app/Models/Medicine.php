@@ -11,7 +11,8 @@ class Medicine extends Model
     protected $guarded = [];
     public function pharmacy()
     {
-        return $this->belongsToMany(Pharmacy::class, 'pharmacy_inventory');
+        return $this->belongsToMany(Pharmacy::class, 'pharmacy_inventory')
+            ->withPivot('quantity');
     }
     public function treatments()
     {

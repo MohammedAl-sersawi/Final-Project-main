@@ -68,12 +68,24 @@ class AppointmentRepository implements AppointmentRepositoryInterface
                     ->addColumn('doctor_name', function ($row) {
                         return $row->doctor->trans_full_name;
                     })
+
                     ->addColumn('actions', function ($row) {
-                        return '
-                    <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="View" data-url="' . route('patient.appointments.show', $row->id) . '" data-id="' . $row->id . '" type="button" id="view">
-                        <i class="la la-eye"></i>
-                    </a>
-                ';
+                        if ($row->status == "completed") {
+                            return '
+                            <a href="' . route('patient.appointments.show', $row->id) . '" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="View">
+                                <i class="la la-eye"></i>
+                            </a>
+                            ';
+                        } elseif ($row->status != "completed") {
+                            return '
+                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit" data-url=" " data-id=" " type="button" id="edit">
+                                <i class="la la-edit"></i>
+                            </a>
+                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown" aria-expanded="true">
+                                    <i class="la la-trash"></i>
+                            </a>
+                            ';
+                        }
                     })
                     ->rawColumns(['actions'])
                     ->make(true);
@@ -131,7 +143,11 @@ class AppointmentRepository implements AppointmentRepositoryInterface
             'appointment_date' => $appointment->appointment_date,
         ]);
     }
-    public function show($id) {}
+    public function show($id)
+    {
+        $appointment = Appointment::findOrFail($id);
+        return view('dashboard.patient.appointment.show');
+    }
     public function update($request, $id) {}
     public function dailyAppointments($request)
     {
@@ -165,7 +181,7 @@ class AppointmentRepository implements AppointmentRepositoryInterface
                 ->rawColumns(['actions'])
                 ->make(true);
         }
-         return view('dashboard.doctor.appointment.daily');
+        return view('dashboard.doctor.appointment.daily');
     }
     public function getDoctors($id)
     {

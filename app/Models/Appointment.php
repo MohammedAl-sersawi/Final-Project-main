@@ -30,4 +30,8 @@ class Appointment extends Model
     {
         return $this->belongsTo(Group::class);
     }
+    public function treatment()
+    {
+        return $this->hasOne(Treatment::class);
+    }
 }

@@ -16,8 +16,7 @@
                     <i class="fa fa-times"></i>
                 </span>
             </div>
-            {{-- <span class="form-text text-muted"></span> --}}
-        </div>
+         </div>
     </div>
     <div class="form-group row">
         <label class="col-form-label col-lg-3 col-sm-12">الاسم بالعربي </label>

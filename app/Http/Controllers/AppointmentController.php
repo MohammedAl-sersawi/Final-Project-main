@@ -63,9 +63,9 @@ class AppointmentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Appointment $appointment)
+    public function show(String $id)
     {
-        //
+        return $this->Appointments->show($id);
     }
 
     /**

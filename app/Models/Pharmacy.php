@@ -10,9 +10,10 @@ class Pharmacy extends Model
 {
     use HasFactory, Trans;
     protected $guarded = [];
-    public function medicine()
+    public function medicines()
     {
-        return $this->belongsToMany(Medicine::class, 'pharmacy_inventory');
+        return $this->belongsToMany(Medicine::class, 'pharmacy_inventory')
+            ->withPivot('quantity' );
     }
     public function pharmacists()
     {

@@ -21,4 +21,8 @@ class Treatment extends Model
     {
         return $this->belongsTo(Diagnosis::class);
     }
+    public function appointment()
+    {
+        return $this->belongsTo(Appointment::class);
+    }
 }

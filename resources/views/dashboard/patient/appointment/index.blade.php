@@ -87,8 +87,8 @@
                             </div>
                         </div>
                         &nbsp;
-                        <a href="javascript:;"id="create" class="btn btn-brand btn-elevate btn-icon-sm">
-                            <i class="la la-plus"></i>{{ __('dashboard.add-new-service') }} </a>
+                        <a href="{{ route('patient.appointments.create') }}" class="btn btn-brand btn-elevate btn-icon-sm">
+                            <i class="la la-plus"></i>{{ __('dashboard.add-new-appointment') }} </a>
                     </div>
                 </div>
             </div>

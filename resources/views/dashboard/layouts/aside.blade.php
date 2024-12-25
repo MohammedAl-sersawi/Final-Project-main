@@ -345,7 +345,7 @@
                     <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
                         data-ktmenu-submenu-toggle="hover"><a href="javascript:;"
                             class="kt-menu__link kt-menu__toggle"><i
-                                class="kt-menu__link-icon flaticon-graphic"></i><span
+                                class="kt-menu__link-icon flaticon-calendar-with-a-clock-time-tools"></i><span
                                 class="kt-menu__link-text">{{ __('dashboard.appointments') }}</span><i
                                 class="kt-menu__ver-arrow la la-angle-right"></i></a>
                         <div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
@@ -363,8 +363,47 @@
                             </ul>
                         </div>
                     </li>
+
+
+                    <li class="kt-menu__item " aria-haspopup="true"><a href="{{ route('doctor.chats.index') }}"
+                            class="kt-menu__link ">
+                            <i class="kt-menu__link-icon flaticon-list-1"></i>
+                            <span class="kt-menu__link-text">{{ __('dashboard.diagnosis') }}</span></a></li>
+
+
                 </ul>
             @elseif (Auth::guard('pharmacist')->check())
+                <ul class="kt-menu__nav ">
+                    <li class="kt-menu__item {{ request()->routeIs('pharmacist.dashboard') ? 'kt-menu__item--active' : '' }}"
+                        aria-haspopup="true"><a href="{{ route('patient.dashboard') }}" class="kt-menu__link "><i
+                                id="kt-menu__link-icon" class="kt-menu__link-icon flaticon-home"></i><span
+                                class="kt-menu__link-text">{{ __('dashboard.dashboard') }}</span></a></li>
+                    <li class="kt-menu__section ">
+                        <h4 class="kt-menu__section-text">{{ __('dashboard.services') }}</h4>
+                        <i class="kt-menu__section-icon flaticon-more-v2"></i>
+                    </li>
+                    <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true"
+                        data-ktmenu-submenu-toggle="hover"><a href="javascript:;"
+                            class="kt-menu__link kt-menu__toggle"><i
+                                class="kt-menu__link-icon flaticon-graphic"></i><span
+                                class="kt-menu__link-text">{{ __('dashboard.medicines') }}</span><i
+                                class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                        <div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
+                            <ul class="kt-menu__subnav">
+                                <li class="kt-menu__item " aria-haspopup="true"><a
+                                        href="{{ route('pharmacist.medicines.index') }}" class="kt-menu__link "><i
+                                            class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span
+                                            class="kt-menu__link-text">{{ __('dashboard.medicines') }}</span></a>
+                                </li>
+                                <li class="kt-menu__item " aria-haspopup="true"><a
+                                        href="{{ route('pharmacist.dashboard') }}" class="kt-menu__link "><i
+                                            class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span
+                                            class="kt-menu__link-text">{{ __('dashboard.add-new-medicines') }}</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
             @elseif (Auth::guard('lap')->check())
             @endif
         </div>

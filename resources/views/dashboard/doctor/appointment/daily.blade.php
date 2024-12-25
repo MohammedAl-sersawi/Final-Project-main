@@ -345,6 +345,7 @@
                 $('#diagnosisEn').val('');
                 $('.medicines-table tbody').empty();
             });
+
             function loadMedicines() {
                 $.ajax({
                     url: '{{ route('doctor.medicines.get') }}',
@@ -469,6 +470,9 @@
                 const readOnlyInput =
                     `<input type="text" class="form-control" name="medicine" data-id="${medicineId}" value="${medicineName}" readonly disabled />`;
                 row.find('td').first().html(readOnlyInput);
+                row.find('input[name="dosage"]').prop('readonly', true).prop('disabled', true);
+                row.find('input.frequency').prop('readonly', true).prop('disabled', true);
+                row.find('input.description').prop('readonly', true).prop('disabled', true);
                 row.find('.medicine').remove();
                 row.find('.confirm-medicine').remove();
                 row.removeClass('new-medicine').addClass('medicine');
@@ -490,9 +494,19 @@
                         cancelButtonText: 'لا، إلغاء'
                     }).then((result) => {
                         row.find('select.medicine').val(null).selectpicker('refresh');
-                        row.find('input[name="dosage"]').val('');
-                        row.find('input.frequency').val('');
-                        row.find('input.description').val('');
+                        row.find('input[name="dosage"]').val('').prop('readonly', false).prop(
+                            'disabled', false);
+                        row.find('input.frequency').val('').prop('readonly', false).prop('disabled',
+                            false);
+                        row.find('input.description').val('').prop('readonly', false).prop(
+                            'disabled', false);
+
+
+
+
+
+
+
 
                         const buttonsHtml = `
                         <button class="btn btn-sm btn-icon btn-icon-md btn-primary confirm-medicine"><i class="la la-check"></i></button>
