@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('referred_to_doctor_id')->onDelete('cascade');
             $table->string('reason');
             $table->date('date');
-            $table->enum('status', ['pending', 'completed', 'rejected'])->default('pending'); // حالة التحويل
+            $table->enum('status', ['pending', 'completed', 'rejected'])->default('pending');
             $table->timestamps();
         });
     }

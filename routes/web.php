@@ -86,6 +86,7 @@ Route::group(
                 route::resource('appointments', AppointmentController::class);
                 route::get('/appointments/{id}/get-status', [AppointmentController::class, 'getStatus'])->name('appointments.getStatus');
                 route::post('/appointments/{id}/update-status', [AppointmentController::class, 'updateStatus'])->name('appointments.updateStatus');
+                Route::get('/appointments/get_doctors/{departmentId}', [AppointmentController::class, 'getDoctors'])->name('appointments.getDoctors');
                 route::resource('/diagnoses', DiagnosisController::class);
                 Route::get('/get-medicines', [MedicineController::class, 'getMedicines'])->name('medicines.get');
                 route::prefix('/chats')->name('chats.')->group(function () {

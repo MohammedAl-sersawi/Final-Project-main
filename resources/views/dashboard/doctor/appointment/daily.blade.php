@@ -2,6 +2,10 @@
 @section('title', 'Appointments')
 @section('styles')
     <style>
+        .transfer-form {
+            display: none;
+        }
+
         .modal-footer {
             justify-content: space-between;
         }
@@ -26,6 +30,12 @@
 
         .dropup .btn.dropdown-toggle:after {
             rotate: 180deg;
+        }
+
+        @media (max-width: 1024px) {
+            .form-group .col-lg-4:last-child {
+                margin-top: 15px;
+            }
         }
     </style>
 @endsection
@@ -119,6 +129,8 @@
 
 
     <!--begin::Modal-->
+    <!--begin::Modal:diagnosis-->
+
     <div class="modal fade" id="kt_modal_4_2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
@@ -209,6 +221,194 @@
             </div>
         </div>
     </div>
+    <!--end::Modal:diagnosis-->
+    <!--begin::Modal:transfers-->
+    <div class="modal fade" id="kt_modal_4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-4 col-sm-12">Select Transfer *</label>
+                        <div class="col-lg-8 col-md-9 col-sm-12">
+                            <div class="bootstrap-select-wrapper">
+                                <div class="dropdown bootstrap-select  form-control kt-bootstrap-select dropup">
+                                    <select class="form-control" id="select_transfer" name="transfer">
+                                        <option disabled selected>Select Transfer</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form action="" class="transfer-form" id="1">
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-4 col-sm-12">Select Doctor *</label>
+                            <div class="col-lg-4 col-md-4 col-sm-12 ">
+                                <div class="bootstrap-select-wrapper">
+                                    <div class="dropdown bootstrap-select  form-control kt-bootstrap-select dropup">
+                                        <select class="form-control" id="select_department" name="department">
+                                            <option disabled selected>Select Department</option>
+                                            @foreach ($departments as $department)
+                                                <option value="{{ $department->id }}">{{ $department->trans_name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 ">
+                                <div class="bootstrap-select-wrapper">
+                                    <div class="dropdown bootstrap-select  form-control kt-bootstrap-select dropup">
+                                        <select class="form-control" id="select_doctor" name="doctor"
+                                            data-live-search="true">
+                                            <option disabled selected>Select Doctor</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-4 col-sm-12">Enter The reason *</label>
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <input type="text" class="form-control" placeholder="Enter The reason">
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+
+                                <div class="bootstrap-select-wrapper">
+                                    <div class="dropdown bootstrap-select  form-control kt-bootstrap-select dropup">
+                                        <select class="form-control" id="select_status" name="status">
+                                            <option disabled selected>Select status</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Send message</button>
+                        </div>
+                    </form>
+                    <form action="" class="transfer-form" id="2">
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-4 col-sm-12">Select Doctor *</label>
+                            <div class="col-lg-4 col-md-4 col-sm-12 ">
+                                <div class="bootstrap-select-wrapper">
+                                    <div class="dropdown bootstrap-select  form-control kt-bootstrap-select dropup">
+                                        <select class="form-control" id="select_department" name="department">
+                                            <option disabled selected>Select Department</option>
+                                            @foreach ($departments as $department)
+                                                <option value="{{ $department->id }}">{{ $department->trans_name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 ">
+                                <div class="bootstrap-select-wrapper">
+                                    <div class="dropdown bootstrap-select  form-control kt-bootstrap-select dropup">
+                                        <select class="form-control" id="select_doctor" name="doctor"
+                                            data-live-search="true">
+                                            <option disabled selected>Select Doctor</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-4 col-sm-12">Enter The reason *</label>
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <input type="text" class="form-control" placeholder="Enter The reason">
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+
+                                <div class="bootstrap-select-wrapper">
+                                    <div class="dropdown bootstrap-select  form-control kt-bootstrap-select dropup">
+                                        <select class="form-control" id="select_status" name="status">
+                                            <option disabled selected>Select status</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Send message</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--end::Modal:transfers-->
+
+    <!--begin::Modal:transfers-->
+    <div class="modal fade" id="kt_modal_4_lap" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="asdasdadadas" action="{{ route('doctor.appointments.updateStatus') }}" method="POST">
+                        @csrf
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-3 col-sm-12">Multi Select</label>
+                            <div class=" col-lg-9 col-md-9 col-sm-12">
+                                <select style="width: 100% ; text-align: right" class="form-control kt-select2"
+                                    id="kt_select2_3" name="tests[]" multiple="multiple">
+                                    <option value="AZ">Arizona</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" id="save_lap_test" class="btn btn-primary">Send message</button>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--end::Modal:transfers-->
+
     <!--end::Modal-->
 @endsection
 
@@ -250,10 +450,57 @@
     <script src="{{ asset('adminassets/assets/js/pages/crud/forms/validation/form-widgets.js') }}" type="text/javascript">
     </script>
 
+
     <script>
+        $('#select_transfer').change(function() {
+            var transfer_id = $(this).val();
+            $('.transfer-form').each(function() {
+                transfer_id === $(this).attr('id') ? $(this).show() : $(this).hide();
+            });
+        });
+        $('#kt_select2_3').select2({
+            placeholder: "Select a Test",
+        });
         $(document).ready(function() {
+
+
+
             var doctorSelect = $('.kt-selectpicker');
             loadMedicines();
+            $('#select_department').change(function() {
+                var selectedDepartment = $(this).val();
+                var doctorSelect = $('#select_doctor');
+                doctorSelect.empty();
+                if (selectedDepartment) {
+                    $.ajax({
+                        url: `/dashboard/doctor/appointments/get_doctors/${selectedDepartment}`, // ضبط URL
+                        method: 'GET',
+                        success: function(response) {
+                            doctorSelect.empty().append(
+                                '<option disabled selected>اختر الطبيب</option>'
+                            );
+                            if (response.doctors.length === 0) {
+                                doctorSelect.append(
+                                    '<option disabled>No doctors available</option>'
+                                );
+                            } else {
+                                response.doctors.forEach(function(doctor) {
+                                    doctorSelect.append(
+                                        `<option value="${doctor.id}">${doctor.name}</option>`
+                                    );
+                                });
+                            }
+                            doctorSelect.selectpicker('refresh');
+                        },
+                        error: function() {
+                            console.log('حدث خطأ أثناء جلب البيانات.');
+                        }
+                    });
+                }
+            });
+
+
+
             doctorSelect.selectpicker('refresh');
             var table = $('#kt_table_1');
             table.DataTable({
@@ -610,6 +857,7 @@
                     }
                 });
             });
+
         });
     </script>
 

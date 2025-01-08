@@ -30,7 +30,6 @@ class AppointmentController extends Controller
     {
         return $this->Appointments->create();
     }
-
     /**
      * Store a newly created resource in storage.
      */

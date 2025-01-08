@@ -148,12 +148,13 @@ class AppointmentRepository implements AppointmentRepositoryInterface
         $appointment = Appointment::findOrFail($id);
         $medicines = $appointment->treatment->medicines;
         $diagnosis = $appointment->diagnosis;
-        return view('dashboard.patient.appointment.show', compact(['appointment', 'medicines']));
+        return view('dashboard.patient.appointment.show', compact(['appointment', 'medicines', 'diagnosis']));
     }
     public function update($request, $id) {}
     public function dailyAppointments($request)
     {
         $doctorId = Auth::guard('doctor')->id();
+        $departments = Department::all();
         $today = now()->toDateString();
         $appointments = Appointment::where('doctor_id', $doctorId)
             ->where('date', $today)
@@ -172,9 +173,10 @@ class AppointmentRepository implements AppointmentRepositoryInterface
                                 <i class="la la-ellipsis-h"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="' . route('doctor.appointments.show', $row->id) . '"><i class="la la-eye"></i> Generate Report</a>
-                                <a class="dropdown-item" id="updatestatus" data-toggle="modal" data-target="#kt_modal_1" href="javascript:;" data-id=" ' . $row->id . ' "><i class="la la-print"></i> Update Status</a>
-                                <a class="dropdown-item" id="diagnosis" data-toggle="modal" data-target="#kt_modal_4_2" href="javascript:;" data-id=" ' . $row->id . ' "data-patient-id="' . $row->patient->id . '"    ><i class="la la-clipboard"></i> Patient Diagnosis</a>
+                                <a class="dropdown-item" href="' . route('doctor.appointments.show', $row->id) . '"><i class="la la-eye"></i>Show Report</a>
+                                <a class="dropdown-item" id="updatestatus" data-toggle="modal" data-target="#kt_modal_4" href="javascript:;" data-id=" ' . $row->id . ' "><i class="la la-share"></i>Transfer Patient</a>
+                                <a class="dropdown-item" id="updatestatus" data-toggle="modal" data-target="#kt_modal_4_lap" href="javascript:;" data-id=" ' . $row->id . ' "><i class="la la-flask"></i>Tests Patient</a>
+                                <a class="dropdown-item" id="diagnosis" data-toggle="modal" data-target="#kt_modal_4_2" href="javascript:;" data-id=" ' . $row->id . ' "data-patient-id="' . $row->patient->id . '"    ><i class="la la-clipboard "></i> Patient Diagnosis</a>
                                 <a class="dropdown-item" id="trash" href="javascript:;" data-url="' . route('doctor.appointments.destroy', $row->id) . '"><i class="la la-trash"></i>Delete Record</a>
                             </div>
                         </span>
@@ -183,7 +185,7 @@ class AppointmentRepository implements AppointmentRepositoryInterface
                 ->rawColumns(['actions'])
                 ->make(true);
         }
-        return view('dashboard.doctor.appointment.daily');
+        return view('dashboard.doctor.appointment.daily', compact('departments'));
     }
     public function getDoctors($id)
     {

@@ -20,6 +20,9 @@ var KTFormWidgets = function () {
         $('#select-services').selectpicker();
         $('#service-select').selectpicker();
         $('#select_code').selectpicker();
+        $('#select_status').selectpicker();
+        $('#select_transfer').selectpicker();
+
     }
     return {
         // public functions

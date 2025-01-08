@@ -124,7 +124,7 @@
                                         <div class="kt-form" id="kt_form">
                                             <div class="kt-wizard-v1__content">
                                                 <div class="kt-heading kt-heading--md">
-                                                    تشخيص المريض في تاريخ (20-12-2024)
+                                                    تشخيص المريض في تاريخ ({{ $diagnosis->date }})
                                                 </div>
                                                 <div class="kt-form__section kt-form__section--first">
                                                     <div class="kt-wizard-v1__review">
@@ -133,13 +133,7 @@
                                                                 {{ __('patient.diagnosisEn') }}
                                                             </div>
                                                             <div class="kt-wizard-v1__review-content">
-                                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                                                Velit, adipisci! Odit ad repellat doloribus in ipsam odio
-                                                                excepturi ullam quod sapiente saepe? Mollitia nemo officia
-                                                                obcaecati fuga ipsam odio, iure necessitatibus, quia
-                                                                consequuntur quibusdam nihil dolorum quos hic facere impedit
-                                                                voluptas recusandae asperiores ducimus fugiat pariatur?
-                                                                Aliquam veniam ipsa delectus?
+                                                                {{ $diagnosis->trans_diagnosis }}
                                                             </div>
                                                         </div>
                                                         <div class="kt-wizard-v1__review-item">

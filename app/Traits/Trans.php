@@ -127,4 +127,11 @@ trait Trans
         }
         return $this->description;
     }
+    public function getTransDiagnosisAttribute()
+    {
+        if ($this->diagnosis) {
+            return json_decode($this->diagnosis, true)[app()->currentLocale()];
+        }
+        return $this->diagnosis;
+    }
 }
