@@ -118,5 +118,49 @@ Route::group(
 
 
         // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+        Route::get('/about-us', function () {
+            return view('web.about-us');
+        })->name('about.us');
+        Route::get('/contact', function () {
+            return view('web.contact');
+        })->name('contact');
+        Route::get('/services', function () {
+            return view('web.services');
+        })->name('services');
+        Route::get('/departments', function () {
+            return view('web.department');
+        })->name('departments');
+
+        Route::get('/doctors', function () {
+            return view('web.doctor');
+        })->name('doctors');
+
+        Route::get('/blogs', function () {
+            return view('web.blog');
+        })->name('blogs');
+
+        Route::get('/blogClassics', function () {
+            return view('web.blogClassic');
+        })->name('blogClassics');
+
+        Route::get('/blogDitals', function () {
+            return view('web.blogDital');
+        })->name('blogDitals');
+
+        Route::get('/pharmacies', function () {
+            return view('web.Pharmacy');
+        })->name('pharmacies');
+
+        Route::get('/doctor-detail', function () {
+            return view('web.doctors-detail');
+        })->name('doctor-detail');
+
+        Route::get('/teams', function () {
+            return view('web.team');
+        })->name('teams');
+
+        Route::get('/faqs', function () {
+            return view('web.faq');
+        })->name('faqs');
     }
 );

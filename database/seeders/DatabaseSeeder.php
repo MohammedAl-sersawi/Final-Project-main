@@ -20,24 +20,58 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-
-
-
-
-        Department::create([
-            'name' => json_encode([
-                'en' => 'Cardiology',
-                'ar' => 'طب القلب',
-            ], JSON_UNESCAPED_UNICODE),
-            'address' => json_encode([
-                'en' => '123 Heart St.',
-                'ar' => 'شارع القلب 123',
-            ], JSON_UNESCAPED_UNICODE),
-            'description' => json_encode([
-                'en' => 'Department of Cardiology',
-                'ar' => 'قسم طب القلب',
-            ], JSON_UNESCAPED_UNICODE),
+        Department::insert([
+            [
+                'name' => json_encode([
+                    'en' => 'Cardiology',
+                    'ar' => 'طب القلب',
+                ], JSON_UNESCAPED_UNICODE),
+                'address' => json_encode([
+                    'en' => '123 Heart St.',
+                    'ar' => 'شارع القلب 123',
+                ], JSON_UNESCAPED_UNICODE),
+                'description' => json_encode([
+                    'en' => 'Department of Cardiology, specializing in heart diseases and treatments.',
+                    'ar' => 'قسم طب القلب، متخصص في أمراض وعلاجات القلب.',
+                ], JSON_UNESCAPED_UNICODE),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => json_encode([
+                    'en' => 'Neurology',
+                    'ar' => 'طب الأعصاب',
+                ], JSON_UNESCAPED_UNICODE),
+                'address' => json_encode([
+                    'en' => '456 Brain Ave.',
+                    'ar' => 'شارع الدماغ 456',
+                ], JSON_UNESCAPED_UNICODE),
+                'description' => json_encode([
+                    'en' => 'Department of Neurology, treating neurological disorders and brain diseases.',
+                    'ar' => 'قسم طب الأعصاب، يعالج اضطرابات الجهاز العصبي وأمراض الدماغ.',
+                ], JSON_UNESCAPED_UNICODE),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => json_encode([
+                    'en' => 'Orthopedics',
+                    'ar' => 'طب العظام',
+                ], JSON_UNESCAPED_UNICODE),
+                'address' => json_encode([
+                    'en' => '789 Bone Rd.',
+                    'ar' => 'طريق العظام 789',
+                ], JSON_UNESCAPED_UNICODE),
+                'description' => json_encode([
+                    'en' => 'Department of Orthopedics, specializing in bone and joint treatments.',
+                    'ar' => 'قسم طب العظام، متخصص في علاج مشاكل العظام والمفاصل.',
+                ], JSON_UNESCAPED_UNICODE),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
+
+
 
 
         Admin::create([

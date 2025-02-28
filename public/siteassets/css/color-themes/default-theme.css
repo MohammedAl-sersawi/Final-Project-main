@@ -181,19 +181,19 @@ a,
 .range-slider-one .ui-state-default, .range-slider-one .ui-widget-content .ui-state-default,
 .comming-soon .emailed-form .form-group input[type="submit"], .comming-soon .emailed-form button,
 .department-section .owl-dots .owl-dot.active, .department-section .owl-dots .owl-dot:hover,
-.main-slider .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
+/* .main-slider .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
 	background-color:#004cda;
-}
+} */
 
-.page-title:before,
-.department-section-two:before{
-	background-image: -ms-linear-gradient(left, #004cda 0%, #009dcd 100%);
-	background-image: -moz-linear-gradient(left, #004cda 0%, #009dcd 100%);
-	background-image: -o-linear-gradient(left, #004cda 0%, #009dcd 100%);
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #004cda), color-stop(100, #009dcd));
-	background-image: -webkit-linear-gradient(left, #004cda 0%, #009dcd 100%);
-	background-image: linear-gradient(to right, #004cda 0%, #009dcd 100%);
-}
+/* .page-title:before, */
+/* .department-section-two:before{ */
+	/* background-image: -ms-linear-gradient(left, #004cda 0%, #009dcd 100%); */
+	/* background-image: -moz-linear-gradient(left, #004cda 0%, #009dcd 100%); */
+	/* background-image: -o-linear-gradient(left, #004cda 0%, #009dcd 100%); */
+	/* background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #004cda), color-stop(100, #009dcd)); */
+	/* background-image: -webkit-linear-gradient(left, #004cda 0%, #009dcd 100%); */
+	/* background-image: linear-gradient(to right, #004cda 0%, #009dcd 100%); */
+/* } */
 
 .btn-style-one:before,
 .btn-style-one:after{

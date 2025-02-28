@@ -176,8 +176,8 @@ body {
 }
 
 .news-widget-block .widget-inner {
-    padding-left: 0;
-    padding-right: 110px;
+    padding-right: 0 !important;
+    padding-left: 110px !important;
 
 }
 

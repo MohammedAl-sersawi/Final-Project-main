@@ -2,10 +2,6 @@
 @section('title', 'Appointments')
 @section('styles')
     <style>
-        .transfer-form {
-            display: none;
-        }
-
         .modal-footer {
             justify-content: space-between;
         }
@@ -233,7 +229,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group row">
+                    {{-- <div class="form-group row">
                         <label class="col-form-label col-lg-4 col-sm-12">Select Transfer *</label>
                         <div class="col-lg-8 col-md-9 col-sm-12">
                             <div class="bootstrap-select-wrapper">
@@ -246,7 +242,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <form action="" class="transfer-form" id="1">
                         <div class="form-group row">
                             <label class="col-form-label col-lg-4 col-sm-12">Select Doctor *</label>
@@ -277,73 +273,34 @@
 
                         <div class="form-group row">
                             <label class="col-form-label col-lg-4 col-sm-12">Enter The reason *</label>
-                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                <input type="text" class="form-control" placeholder="Enter The reason">
+                            <div class="col-lg-8 col-md-8 col-sm-12">
+                                <textarea placeholder="Enter The reason" class="form-control" name="reason" id="reason" rows="4"></textarea>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-12">
 
-                                <div class="bootstrap-select-wrapper">
-                                    <div class="dropdown bootstrap-select  form-control kt-bootstrap-select dropup">
-                                        <select class="form-control" id="select_status" name="status">
-                                            <option disabled selected>Select status</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </div>
 
 
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Send message</button>
-                        </div>
-                    </form>
-                    <form action="" class="transfer-form" id="2">
-                        <div class="form-group row">
-                            <label class="col-form-label col-lg-4 col-sm-12">Select Doctor *</label>
-                            <div class="col-lg-4 col-md-4 col-sm-12 ">
-                                <div class="bootstrap-select-wrapper">
-                                    <div class="dropdown bootstrap-select  form-control kt-bootstrap-select dropup">
-                                        <select class="form-control" id="select_department" name="department">
-                                            <option disabled selected>Select Department</option>
-                                            @foreach ($departments as $department)
-                                                <option value="{{ $department->id }}">{{ $department->trans_name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-12 ">
-                                <div class="bootstrap-select-wrapper">
-                                    <div class="dropdown bootstrap-select  form-control kt-bootstrap-select dropup">
-                                        <select class="form-control" id="select_doctor" name="doctor"
-                                            data-live-search="true">
-                                            <option disabled selected>Select Doctor</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="form-group row">
                             <label class="col-form-label col-lg-4 col-sm-12">Enter The reason *</label>
-                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                <input type="text" class="form-control" placeholder="Enter The reason">
+                            <div class="col-lg-8 col-md-8 col-sm-12">
+                                <textarea placeholder="Enter The reason" class="form-control" name="reason" id="reason" rows="4"></textarea>
                             </div>
+
+
+
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-form-label col-lg-4 col-sm-12">Select status *</label>
+
                             <div class="col-lg-4 col-md-4 col-sm-12">
 
                                 <div class="bootstrap-select-wrapper">
                                     <div class="dropdown bootstrap-select  form-control kt-bootstrap-select dropup">
                                         <select class="form-control" id="select_status" name="status">
                                             <option disabled selected>Select status</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
+                                            <option value="pending">pending</option>
+                                            <option value="completed">completed</option>
+                                            <option value="rejected">rejected</option>
                                         </select>
                                     </div>
                                 </div>
@@ -352,13 +309,13 @@
 
 
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Send message</button>
-                        </div>
                     </form>
-                </div>
 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
+                </div>
             </div>
         </div>
     </div>
@@ -377,7 +334,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <form class="asdasdadadas" action="{{ route('doctor.appointments.updateStatus') }}" method="POST">
+                    <form class="asdasdadadas" action="" method="POST">
                         @csrf
                         <div class="form-group row">
                             <label class="col-form-label col-lg-3 col-sm-12">Multi Select</label>

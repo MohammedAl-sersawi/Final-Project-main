@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>Home</title>
-    @include('web.layouts.head')
+    <meta charset="utf-8">
+    <title>HIMS | Home</title>
+    <!-- Stylesheets -->
+    <link href="{{ asset('siteassets/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('siteassets/css/style.css') }}" rel="stylesheet">
+    @if (app()->currentLocale() == 'ar')
+        <link href="{{ asset('siteassets/css/rtl.css') }}" rel="stylesheet">
+    @endif
+    <link href="{{ asset('siteassets/css/responsive.css') }}" rel="stylesheet">
+
+    <!--Color Switcher Mockup-->
+    <link href="{{ asset('siteassets/css/color-switcher-design.css') }}" rel="stylesheet">
+    <!--Color Themes-->
+    <link id="theme-color-file" href="{{ asset('siteassets/css/color-themes/default-theme.css') }}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{{ asset('siteassets/images/favicon.png') }}') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('siteassets/images/favicon.png') }}') }}" type="image/x-icon">
+
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 </head>
+
 <body>
 
     <div class="page-wrapper">
@@ -18,11 +41,8 @@
 
                     <!--Info-->
                     <div class="logo-outer">
-                        <div class="logo">
-                            <a href="{{ url('/') }}">
-                            <span class="logo-text">CARE<span class="net">NET</span></span>
-                            </a>
-                        </div>
+                        <div class="logo"><a href="index.html"><img src="{{ asset('siteassets/images//logo-3.png') }}"
+                                    alt="" title=""></a></div>
                     </div>
 
                     <!--Nav Box-->
@@ -41,43 +61,13 @@
 
                             <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
                                 <ul class="navigation clearfix">
-                                    <li><a href="{{ url('/') }}">Home</a></li>
-                                    <li><a href="{{ route('about.us') }}">About Us</a></li>
-                                    <li class="dropdown has-mega-menu"><a href="#">Pages</a>
-										<div class="mega-menu">
-											<div class="mega-menu-bar row clearfix">
-												<div class="column col-md-3 col-xs-12">
-													<h3>About Us</h3>
-													<ul>
-														<li><a href="{{ route('about.us') }}">About Us</a></li>
-														<li><a href="{{ route('teams') }}">Our Team</a></li>
-														<li><a href="{{ route('faqs') }}">Faq</a></li>
-														<li><a href="{{ route('services') }}">Services</a></li>
-													</ul>
-												</div>
-												<div class="column col-md-3 col-xs-12">
-													<h3>Doctors</h3>
-													<ul>
-														<li><a href="{{ route('doctors') }}">Doctors</a></li>
-														<li><a href="{{ route('doctor-detail') }}">Doctors Detail</a></li>
-													</ul>
-												</div>
-												<div class="column col-md-3 col-xs-12">
-													<h3>Blog</h3>
-													<ul>
-														<li><a href="{{ route('blogs') }}">Our Blog</a></li>
-														<li><a href="{{ route('blogClassics') }}">Blog Classic</a></li>
-														<li><a href="{{ route('blogDitals') }}">Blog Detail</a></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</li>
-                                    <li><a href="{{ route('departments') }}">Department</a></li>
-                                    <li><a href="{{ route('doctors') }}">Doctors</a></li>
-                                    <li><a href="{{ route('blogs') }}">Blog</a></li>
-                                    <li><a href="{{ route('pharmacies') }}">Pharmacy</a></li>
-                                    <li><a href="{{ route('contact') }}">Contact</a></li>
+                                    <li><a href="contact.html">Home</a></li>
+                                    <li><a href="contact.html">Department</a></li>
+                                    <li><a href="contact.html">Doctors</a></li>
+                                    <li><a href="contact.html">About Us</a></li>
+                                    <li><a href="contact.html">Appointment</a></li>
+                                    <li><a href="contact.html">Latest News</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -109,10 +99,10 @@
             <div class="sticky-header">
                 <div class="auto-container clearfix">
                     <!--Logo-->
-                    <div class="logo1">
-                        <a href="index.html">
-                            <span class="logo-text1">CARE<span class="net1">NET</span></span>
-                        </a>
+                    <div class="logo pull-left">
+                        <a href="index.html" class="img-responsive"><img
+                                src="{{ asset('siteassets/images//logo-small.png') }}" alt=""
+                                title=""></a>
                     </div>
 
                     <!--Right Col-->
@@ -166,9 +156,9 @@
                                         <div class="text">We offer free consulting and the best project management
                                             for your ideas, 100% delivery guaranteed.</div>
                                         <div class="btn-box">
-                                            <a href="#appointments" class="theme-btn appointment-btn"><span
+                                            <a href="contact.html" class="theme-btn appointment-btn"><span
                                                     class="txt">Appointment</span></a>
-                                            <a href="{{ route('services') }}" class="theme-btn services-btn">Services</a>
+                                            <a href="services.html" class="theme-btn services-btn">Services</a>
                                         </div>
                                     </div>
                                 </div>
@@ -177,7 +167,7 @@
                                 <div class="image-column col-lg-6 col-md-12 col-sm-12">
                                     <div class="inner-column">
                                         <div class="image">
-                                            <img src="{{ asset('siteassets/images//main-slider/hospital1.jpg') }}"
+                                            <img src="{{ asset('siteassets/images//main-slider/hospital-1.jpg') }}"
                                                 alt="" />
                                         </div>
                                     </div>
@@ -265,7 +255,7 @@
         <!-- End Main Slider -->
 
         <!-- Health Section -->
-        <section id="aboutus" class="health-section">
+        <section class="health-section">
             <div class="auto-container">
                 <div class="inner-container">
 
@@ -293,7 +283,7 @@
                             <div class="inner-column wow fadeInRight" data-wow-delay="0ms"
                                 data-wow-duration="1500ms">
                                 <div class="image">
-                                    <img src="{{ asset('siteassets/images//main-slider/hospital2.jpg') }}"
+                                    <img src="{{ asset('siteassets/images//resource/image-3.jpg') }}"
                                         alt="" />
                                 </div>
                             </div>
@@ -361,41 +351,43 @@
         <!-- End Featured Section -->
 
         <!-- Department Section Three -->
-        <section id="departments" class="department-section-three">
-    <div class="image-layer" style="background-image:url({{ asset('siteassets/images/background/1doctor.jpg') }})"></div>
-    <div class="auto-container">
-        <div class="department-tabs tabs-box">
-            <div class="row clearfix">
-                <!-- قائمة الأقسام -->
-                <div class="col-lg-4 col-md-12 col-sm-12">
-                    <div class="sec-title light">
-                        <h2>Health <br> Department</h2>
-                        <div class="separator"></div>
-                    </div>
-                    <ul class="tab-btns tab-buttons clearfix">
-                        @foreach ($departments as $index => $department)
-                            <li class="tab-btn {{ $index == 0 ? 'active-btn' : '' }}" 
-                                data-tab="tab-{{ $department->id }}">
-                                {{ $department->trans_name }}
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
+        <section class="department-section-three">
+            <div class="image-layer"
+                style="background-image:url({{ asset('siteassets/images//background/6.jpg') }})"></div>
+            <div class="auto-container">
+                <!-- Department Tabs-->
+                <div class="department-tabs tabs-box">
+                    <div class="row clearfix">
+                        <!--Column-->
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <!-- Sec Title -->
+                            <div class="sec-title light">
+                                <h2>Health <br> Department</h2>
+                                <div class="separator"></div>
+                            </div>
+                            <!--Tab Btns-->
+                            <ul class="tab-btns tab-buttons clearfix">
+                                @foreach ($departments as $department)
+                                    <li data-tab="#tab-{{ $department->id }}" class="tab-btn active-btn">
+                                        {{ $department->trans_name }}</li>
+                                @endforeach
 
-                <!-- محتوى الأقسام -->
-                <div class="col-lg-8 col-md-12 col-sm-12">
-                    <div class="tabs-content">
-                        @foreach ($departments as $index => $department)
-                            <div class="tab {{ $index == 0 ? 'active-tab' : '' }}" 
-                                id="tab-{{ $department->id }}" 
-                                style="{{ $index == 0 ? '' : 'display:none;' }}">
-                                <div class="content">
-                                    <h2>{{ $department->trans_name }}</h2>
-                                    <div class="title">Department of Neurology</div>
-                                    <div class="text">
-                                        <p>{{ $department->trans_description }}</p>
-                                    </div>
-                                    <div class="two-column row clearfix">
+                            </ul>
+                        </div>
+                        <!--Column-->
+                        <div class="col-lg-8 col-md-12 col-sm-12">
+                            <!--Tabs Container-->
+                            <div class="tabs-content">
+                                <!-- Tab -->
+                                @foreach ($departments as $department)
+                                    <div class="tab active-tab" id="tab-{{ $department->id }}">
+                                        <div class="content">
+                                            <h2>{{ $department->trans_name }}</h2>
+                                            <div class="title">Department of Neurology</div>
+                                            <div class="text">
+                                                <p>{{ $department->trans_description }}</p>
+                                            </div>
+                                            <div class="two-column row clearfix">
                                                 <div class="column col-lg-6 col-md-6 col-sm-12">
                                                     <h3>01 - Neurology Service</h3>
                                                     <div class="column-text">Lorem ipsum dolor sit amet, consectetuer
@@ -411,22 +403,23 @@
                                                         sociis natoque penatibus</div>
                                                 </div>
                                             </div>
-                                    <a href="doctors-detail.html" class="theme-btn btn-style-two">
-                                        <span class="txt">View More</span>
-                                    </a>
-                                </div>
+                                            <a href="doctors-detail.html" class="theme-btn btn-style-two"><span
+                                                    class="txt">View More</span></a>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                <!-- Tab -->
                             </div>
-                        @endforeach
+                        </div>
                     </div>
                 </div>
+
             </div>
-        </div>
-    </div>
-</section>
+        </section>
         <!-- End Department Section -->
 
         <!-- Team Section -->
-        <section id="doctors" class="team-section">
+        <section class="team-section">
             <div class="auto-container">
 
                 <!-- Sec Title -->
@@ -441,7 +434,7 @@
                     <div class="team-block col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                             <div class="image">
-                                <img src="{{ asset('siteassets/images//background/doctor1.jpg') }}" alt="" />
+                                <img src="{{ asset('siteassets/images//resource/team-1.jpg') }}" alt="" />
                                 <div class="overlay-box">
                                     <ul class="social-icons">
                                         <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
@@ -464,7 +457,7 @@
                     <div class="team-block col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="inner-box wow fadeInLeft" data-wow-delay="250ms" data-wow-duration="1500ms">
                             <div class="image">
-                                <img src="{{ asset('siteassets/images//background/doctor2.jpg') }}" alt="" />
+                                <img src="{{ asset('siteassets/images//resource/team-2.jpg') }}" alt="" />
                                 <div class="overlay-box">
                                     <ul class="social-icons">
                                         <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
@@ -487,7 +480,7 @@
                     <div class="team-block col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="inner-box wow fadeInLeft" data-wow-delay="500ms" data-wow-duration="1500ms">
                             <div class="image">
-                                <img src="{{ asset('siteassets/images//background/doctor3.jpg') }}" alt="" />
+                                <img src="{{ asset('siteassets/images//resource/team-3.jpg') }}" alt="" />
                                 <div class="overlay-box">
                                     <ul class="social-icons">
                                         <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
@@ -510,7 +503,7 @@
                     <div class="team-block col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="inner-box wow fadeInLeft" data-wow-delay="750ms" data-wow-duration="1500ms">
                             <div class="image">
-                                <img src="{{ asset('siteassets/images//background/doctor4.jpg') }}" alt="" />
+                                <img src="{{ asset('siteassets/images//resource/team-4.jpg') }}" alt="" />
                                 <div class="overlay-box">
                                     <ul class="social-icons">
                                         <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
@@ -537,9 +530,11 @@
 
         <!-- Video Section -->
         <section class="video-section"
-            style="background-image:url({{ asset('siteassets/images//background/doctorHM.jpg') }})">
+            style="background-image:url({{ asset('siteassets/images//background/5.jpg') }})">
             <div class="auto-container">
                 <div class="content">
+                    <a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-box"><span
+                            class="flaticon-play-button"><i class="ripple"></i></span></a>
                     <div class="text">WE ARE CARE ABOUT YOUR HEALTH</div>
                     <h2>We Care About You</h2>
                 </div>
@@ -548,7 +543,7 @@
         <!-- End Video Section -->
 
         <!-- Appointment Section Two -->
-        <section id="appointments" class="appointment-section-two">
+        <section class="appointment-section-two">
             <div class="auto-container">
                 <div class="inner-container">
                     <div class="row clearfix">
@@ -558,7 +553,7 @@
                             <div class="inner-column wow slideInLeft" data-wow-delay="0ms"
                                 data-wow-duration="1500ms">
                                 <div class="image">
-                                    <img src="{{ asset('siteassets/images//background/aidt.jpg') }}"
+                                    <img src="{{ asset('siteassets/images//resource/doctor-2.png') }}"
                                         alt="" />
                                 </div>
                             </div>
@@ -638,7 +633,7 @@
             <div class="auto-container">
                 <!-- Sec Title -->
                 <div class="sec-title centered">
-                    <h2>Appointment Form</h2>
+                    <h2>What Patients Saying</h2>
                     <div class="separator"></div>
                 </div>
                 <div class="testimonial-carousel owl-carousel owl-theme">
@@ -647,9 +642,11 @@
                     <div class="testimonial-block-two">
                         <div class="inner-box">
                             <div class="image">
-                                <img src="{{ asset('siteassets/images//background/person1.jpg') }}" alt="" />
+                                <img src="{{ asset('siteassets/images//resource/author-4.jpg') }}" alt="" />
                             </div>
-                            <div class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,nascetur ridiculus mus. Donec quam felis.Thanks.</div>
+                            <div class="text">Medical Centre is a great place to get all of your medical needs. I
+                                came in for a check up and did not wait more than 5 minutes before I was seen. I can
+                                only imagine the type of service you get for more serious issues. Thanks!</div>
                             <div class="lower-box">
                                 <div class="clearfix">
 
@@ -672,9 +669,11 @@
                     <div class="testimonial-block-two">
                         <div class="inner-box">
                             <div class="image">
-                                <img src="{{ asset('siteassets/images//background/person2.jpg') }}" alt="" />
+                                <img src="{{ asset('siteassets/images//resource/author-5.jpg') }}" alt="" />
                             </div>
-                            <div class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,nascetur ridiculus mus. Donec quam felis.Thanks.</div>
+                            <div class="text">Medical Centre is a great place to get all of your medical needs. I
+                                came in for a check up and did not wait more than 5 minutes before I was seen. I can
+                                only imagine the type of service you get for more serious issues. Thanks!</div>
                             <div class="lower-box">
                                 <div class="clearfix">
 
@@ -697,9 +696,11 @@
                     <div class="testimonial-block-two">
                         <div class="inner-box">
                             <div class="image">
-                                <img src="{{ asset('siteassets/images//background/person1.jpg') }}" alt="" />
+                                <img src="{{ asset('siteassets/images//resource/author-4.jpg') }}" alt="" />
                             </div>
-                            <div class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,nascetur ridiculus mus. Donec quam felis.Thanks.</div>
+                            <div class="text">Medical Centre is a great place to get all of your medical needs. I
+                                came in for a check up and did not wait more than 5 minutes before I was seen. I can
+                                only imagine the type of service you get for more serious issues. Thanks!</div>
                             <div class="lower-box">
                                 <div class="clearfix">
 
@@ -722,9 +723,11 @@
                     <div class="testimonial-block-two">
                         <div class="inner-box">
                             <div class="image">
-                                <img src="{{ asset('siteassets/images//background/person2.jpg') }}" alt="" />
+                                <img src="{{ asset('siteassets/images//resource/author-5.jpg') }}" alt="" />
                             </div>
-                            <div class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,nascetur ridiculus mus. Donec quam felis.Thanks.</div>
+                            <div class="text">Medical Centre is a great place to get all of your medical needs. I
+                                came in for a check up and did not wait more than 5 minutes before I was seen. I can
+                                only imagine the type of service you get for more serious issues. Thanks!</div>
                             <div class="lower-box">
                                 <div class="clearfix">
 
@@ -879,11 +882,17 @@
                         <div class="inner-box">
                             <div class="image">
                                 <a href="blog-detail.html"><img
-                                        src="{{ asset('siteassets/images//background/doctorS1.jpg') }}"
+                                        src="{{ asset('siteassets/images//resource/news-4.jpg') }}"
                                         alt="" /></a>
                             </div>
                             <div class="lower-content">
                                 <div class="content">
+                                    <ul class="post-info">
+                                        <li><span
+                                                class="icon flaticon-chat-comment-oval-speech-bubble-with-text-lines"></span>
+                                            02</li>
+                                        <li><span class="icon flaticon-heart"></span> 126</li>
+                                    </ul>
                                     <ul class="post-meta">
                                         <li>June 21, 2018 at 8:12pm</li>
                                         <li>Post By: Admin</li>
@@ -904,11 +913,17 @@
                         <div class="inner-box">
                             <div class="image">
                                 <a href="blog-detail.html"><img
-                                        src="{{ asset('siteassets/images//background/doctorS2.jpg') }}"
+                                        src="{{ asset('siteassets/images//resource/news-5.jpg') }}"
                                         alt="" /></a>
                             </div>
                             <div class="lower-content">
                                 <div class="content">
+                                    <ul class="post-info">
+                                        <li><span
+                                                class="icon flaticon-chat-comment-oval-speech-bubble-with-text-lines"></span>
+                                            02</li>
+                                        <li><span class="icon flaticon-heart"></span> 126</li>
+                                    </ul>
                                     <ul class="post-meta">
                                         <li>June 21, 2018 at 8:12pm</li>
                                         <li>Post By: Admin</li>
@@ -929,10 +944,185 @@
         </section>
 
         <!--Clients Section-->
+        <section class="clients-section">
+            <div class="outer-container">
+
+                <div class="sponsors-outer">
+                    <!--Sponsors Carousel-->
+                    <ul class="sponsors-carousel owl-carousel owl-theme">
+                        <li class="slide-item">
+                            <figure class="image-box"><a href="#"><img
+                                        src="{{ asset('siteassets/images//clients/1.png') }}" alt=""></a>
+                            </figure>
+                        </li>
+                        <li class="slide-item">
+                            <figure class="image-box"><a href="#"><img
+                                        src="{{ asset('siteassets/images//clients/2.png') }}" alt=""></a>
+                            </figure>
+                        </li>
+                        <li class="slide-item">
+                            <figure class="image-box"><a href="#"><img
+                                        src="{{ asset('siteassets/images//clients/3.png') }}" alt=""></a>
+                            </figure>
+                        </li>
+                        <li class="slide-item">
+                            <figure class="image-box"><a href="#"><img
+                                        src="{{ asset('siteassets/images//clients/4.png') }}" alt=""></a>
+                            </figure>
+                        </li>
+                        <li class="slide-item">
+                            <figure class="image-box"><a href="#"><img
+                                        src="{{ asset('siteassets/images//clients/5.png') }}" alt=""></a>
+                            </figure>
+                        </li>
+                        <li class="slide-item">
+                            <figure class="image-box"><a href="#"><img
+                                        src="{{ asset('siteassets/images//clients/1.png') }}" alt=""></a>
+                            </figure>
+                        </li>
+                        <li class="slide-item">
+                            <figure class="image-box"><a href="#"><img
+                                        src="{{ asset('siteassets/images//clients/2.png') }}" alt=""></a>
+                            </figure>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
         <!--End Clients Section-->
 
         <!--Main Footer-->
-        @include('web.layouts.footer')
+        <footer class="main-footer style-two">
+            <div class="auto-container">
+                <!--Widgets Section-->
+                <div class="widgets-section">
+                    <div class="row clearfix">
+
+                        <!--big column-->
+                        <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                            <div class="row clearfix">
+
+                                <!--Footer Column-->
+                                <div class="footer-column col-lg-7 col-md-6 col-sm-12">
+                                    <div class="footer-widget logo-widget">
+                                        <div class="logo">
+                                            <a href="index.html"><img
+                                                    src="{{ asset('siteassets/images//logo-3.png') }}"
+                                                    alt="" /></a>
+                                        </div>
+                                        <div class="text">Meditech is a library of health and medical templates with
+                                            predefined web elements which helps you to build your medical templates best
+                                            site Provide Comprehensive Quality Care About Medical Care Health
+                                            Suspendisse metus turpis.</div>
+                                        <ul class="social-icons">
+                                            <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                                            <li><a href="#"><span class="fab fa-google"></span></a></li>
+                                            <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                                            <li><a href="#"><span class="fab fa-skype"></span></a></li>
+                                            <li><a href="#"><span class="fab fa-linkedin"></span></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!--Footer Column-->
+                                <div class="footer-column col-lg-5 col-md-6 col-sm-12">
+                                    <div class="footer-widget links-widget">
+                                        <div class="footer-title  clearfix">
+                                            <h2>Departments</h2>
+                                            <div class="separator"></div>
+                                        </div>
+                                        <ul class="footer-list">
+                                            <li><a href="#">Surgery & Radiology</a></li>
+                                            <li><a href="#">Family Medicine</a></li>
+                                            <li><a href="#">Women’s Health</a></li>
+                                            <li><a href="#">Optician</a></li>
+                                            <li><a href="#">Pediatrics</a></li>
+                                            <li><a href="#">Dermatology</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!--big column-->
+                        <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                            <div class="row clearfix">
+
+                                <!--Footer Column-->
+                                <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="footer-widget news-widget">
+                                        <div class="footer-title  clearfix">
+                                            <h2>News Update</h2>
+                                            <div class="separator"></div>
+                                        </div>
+
+                                        <!--News Widget Block-->
+                                        <div class="news-widget-block">
+                                            <div class="widget-inner">
+                                                <div class="image">
+                                                    <img src="{{ asset('siteassets/images//resource/news-image-1.jpg') }}"
+                                                        alt="" />
+                                                </div>
+                                                <h3><a href="blog-detail.html">Integrative Medicine And Cancer
+                                                        Treatment</a></h3>
+                                                <div class="post-date">July 11, 2017</div>
+                                            </div>
+                                        </div>
+
+                                        <!--News Widget Block-->
+                                        <div class="news-widget-block">
+                                            <div class="widget-inner">
+                                                <div class="image">
+                                                    <img src="{{ asset('siteassets/images//resource/news-image-2.jpg') }}"
+                                                        alt="" />
+                                                </div>
+                                                <h3><a href="blog-detail.html">Achieving Better Health Care One Patient
+                                                        Time</a></h3>
+                                                <div class="post-date">July 11, 2018</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!--Footer Column-->
+                                <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="footer-widget contact-widget">
+                                        <div class="footer-title  clearfix">
+                                            <h2>Contact Us</h2>
+                                            <div class="separator"></div>
+                                        </div>
+
+                                        <ul class="contact-list">
+                                            <li><span class="icon flaticon-placeholder"></span>2130 Fulton Street San
+                                                Diego <br> CA 94117-1080 USA</li>
+                                            <li><span class="icon flaticon-call"></span>Mon to Fri : 08:30 - 18:00 <br>
+                                                <a href="tel:+898-68679-575-09">+898 68679 575 09</a>
+                                            </li>
+                                            <li><span class="icon flaticon-message"></span>Do you have a Question? <a
+                                                    href="mailto:info@gmail.com">info@gmail.com</a></li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="auto-container">
+                    <div class="copyright">MediTech Helth Care &copy; All Rights Reserved By Expertthemes</div>
+                </div>
+            </div>
+
+        </footer>
 
     </div>
     <!--End pagewrapper-->
@@ -1009,8 +1199,22 @@
     </div>
 
     <!--Scroll to top-->
-    @include('web.layouts.script')
-
+    <script src="{{ asset('siteassets/js/jquery.js') }}"></script>
+    <script src="{{ asset('siteassets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('siteassets/js/jquery-ui.js') }}"></script>
+    <script src="{{ asset('siteassets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('siteassets/js/jquery.fancybox.js') }}"></script>
+    <script src="{{ asset('siteassets/js/parallax.min.js') }}"></script>
+    <script src="{{ asset('siteassets/js/jquery.paroller.min.js') }}"></script>
+    <script src="{{ asset('siteassets/js/owl.js') }}"></script>
+    <script src="{{ asset('siteassets/js/wow.js') }}"></script>
+    <script src="{{ asset('siteassets/js/nav-tool.js') }}"></script>
+    <script src="{{ asset('siteassets/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('siteassets/js/main.js') }}"></script>
+    <script src="{{ asset('siteassets/js/swiper.min.js') }}"></script>
+    <script src="{{ asset('siteassets/js/appear.js') }}"></script>
+    <script src="{{ asset('siteassets/js/script.js') }}"></script>
+    <script src="{{ asset('siteassets/js/color-settings.js') }}"></script>
 
 </body>
 
