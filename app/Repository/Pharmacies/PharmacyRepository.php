@@ -18,7 +18,7 @@ class PharmacyRepository implements PharmacyRepositoryInterface
                 })
                 ->addColumn('actions', function ($row) {
                     return '
-                        <a href="' . route('pharmacies.edit', $row->id) . '" class="btn btn-sm btn-clean  btn-icon btn-icon-md" title="edit">
+                        <a href="' . route('admin.pharmacies.edit', $row->id) . '" class="btn btn-sm btn-clean  btn-icon btn-icon-md" title="edit">
                             <i class="la la-edit"></i>
                         </a>
                         <span class="dropdown">
@@ -26,8 +26,8 @@ class PharmacyRepository implements PharmacyRepositoryInterface
                                 <i class="la la-ellipsis-h"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="' . route('pharmacies.show', $row->id) . '"><i class="la la-eye"></i> Generate Report</a>
-                                 <a class="dropdown-item" id="trash" href="javascript:;" data-url="' . route('pharmacies.destroy', $row->id) . '"><i class="la la-trash"></i>Delete Record</a>
+                                <a class="dropdown-item" href="' . route('admin.pharmacies.show', $row->id) . '"><i class="la la-eye"></i> Generate Report</a>
+                                 <a class="dropdown-item" id="trash" href="javascript:;" data-url="' . route('admin.pharmacies.destroy', $row->id) . '"><i class="la la-trash"></i>Delete Record</a>
                             </div>
                         </span>
                     ';
@@ -47,16 +47,13 @@ class PharmacyRepository implements PharmacyRepositoryInterface
             'en' => $request->nameen,
             'ar' => $request->namear,
         ], JSON_UNESCAPED_UNICODE);
-        $password = rand();
         Pharmacy::create([
             'name' => $name,
             'phone' => $request->phone,
-            'email' => $request->email,
             'location' => $request->location,
-            'password' => Hash::make($password),
             'type' => $request->type,
         ]);
-        return redirect()->route('pharmacies.index');
+        return redirect()->route('admin.pharmacies.index');
     }
     public function edit($id)
     {
@@ -67,7 +64,6 @@ class PharmacyRepository implements PharmacyRepositoryInterface
                     'data' => [
                         'namear' => $pharmacy->name_ar,
                         'nameen' => $pharmacy->name_en,
-                        'email' => $pharmacy->email,
                         'phone' => $pharmacy->phone,
                         'location' => $pharmacy->location,
                         'type' => $pharmacy->type,
@@ -88,7 +84,6 @@ class PharmacyRepository implements PharmacyRepositoryInterface
         $pharmacy->update([
             'name' => $name,
             'phone' => $request->phone,
-            'email' => $request->email,
             'location' => $request->location,
             'type' => $request->type,
         ]);

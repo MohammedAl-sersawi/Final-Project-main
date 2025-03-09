@@ -75,7 +75,7 @@
                             </div>
                         </div>
                         &nbsp;
-                        <a href="{{ route('pharmacies.create') }}" class="btn btn-brand btn-elevate btn-icon-sm">
+                        <a href="{{ route('admin.pharmacies.create') }}" class="btn btn-brand btn-elevate btn-icon-sm">
                             <i class="la la-plus"></i>
                             New Record
                         </a>
@@ -91,7 +91,6 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Email</th>
                         <th>Phone</th>
                         <th>Location</th>
                         <th>Type</th>
@@ -118,7 +117,7 @@
                 <div class="kt-subheader__breadcrumbs">
                     <a href="" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                     <span class="kt-subheader__breadcrumbs-separator"></span>
-                    <a href="{{ route('dashboard') }}"
+                    <a href="{{ route('admin.dashboard') }}"
                         class="kt-subheader__breadcrumbs-link">{{ __('dashboard.dashboard') }}</a>
 
                 </div>
@@ -146,7 +145,7 @@
             table.DataTable({
                 responsive: true,
                 ajax: {
-                    route: "{!! route('pharmacies.index') !!}",
+                    route: "{!! route('admin.pharmacies.index') !!}",
                     type: 'GET',
                     data: {
                         pagination: {
@@ -161,10 +160,6 @@
                     {
                         data: 'name',
                         title: "{{ __('datatable.name') }}"
-                    },
-                    {
-                        data: 'email',
-                        title: "{{ __('datatable.email') }}"
                     },
                     {
                         data: 'phone',

@@ -79,10 +79,10 @@
                 <div class="kt-subheader__breadcrumbs">
                     <a href="" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                     <span class="kt-subheader__breadcrumbs-separator"></span>
-                    <a href="{{ route('dashboard') }}"
+                    <a href="{{ route('admin.dashboard') }}"
                         class="kt-subheader__breadcrumbs-link">{{ __('dashboard.dashboard') }}</a>
                     <span class="kt-subheader__breadcrumbs-separator"></span>
-                    <a href="{{ route('doctors.index') }}"
+                    <a href="{{ route('admin.doctors.index') }}"
                         class="kt-subheader__breadcrumbs-link">{{ __('dashboard.doctors') }}</a>
 
                 </div>

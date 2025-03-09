@@ -83,10 +83,10 @@
                 <div class="kt-subheader__breadcrumbs">
                     <a href="" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                     <span class="kt-subheader__breadcrumbs-separator"></span>
-                    <a href="{{ route('dashboard') }}"
+                    <a href="{{ route('admin.dashboard') }}"
                         class="kt-subheader__breadcrumbs-link">{{ __('dashboard.dashboard') }}</a>
                     <span class="kt-subheader__breadcrumbs-separator"></span>
-                    <a href="{{ route('doctors.index') }}"
+                    <a href="{{ route('admin.pharmacies.index') }}"
                         class="kt-subheader__breadcrumbs-link">{{ __('dashboard.doctors') }}</a>
 
                 </div>
@@ -110,7 +110,6 @@
                 success: function(response) {
                     $('input[name="namear"]').val(response.data.namear);
                     $('input[name="nameen"]').val(response.data.nameen);
-                    $('input[name="email"]').val(response.data.email);
                     $('input[name="phone"]').val(response.data.phone);
                     $('input[name="location"]').val(response.data.location);
                     $('input[name="type"][value="' + response.data.type + '"]').prop('checked',
@@ -132,7 +131,8 @@
                     processData: false,
                     success: function(response) {
                         setTimeout(function() {
-                            window.location.href = "{{ route('admin.pharmacies.index') }}";
+                            window.location.href =
+                                "{{ route('admin.pharmacies.index') }}";
                         }, 2000);
                         swal.fire({
                             position: 'top-right',

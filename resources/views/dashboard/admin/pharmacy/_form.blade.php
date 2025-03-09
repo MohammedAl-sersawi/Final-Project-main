@@ -15,12 +15,7 @@
 
         </div>
     </div>
-    <div class="form-group row">
-        <label class="col-form-label col-lg-3 col-sm-12">الايميل</label>
-        <div class="col-lg-8 col-md-9 col-sm-12">
-            <input type='email' class="form-control" name="email" placeholder="{{ __('form.email') }}" />
-        </div>
-    </div>
+
     <div class="form-group row">
         <label class="col-form-label col-lg-3 col-sm-12">{{ __('form.phone') }}</label>
         <div class="col-lg-8 col-md-9 col-sm-12">
@@ -32,8 +27,7 @@
         <label class="col-form-label col-lg-3 col-sm-12" for="location">{{ __('form.location') }}</label>
         <div class="col-lg-8 col-md-9 col-sm-12">
             <input type="text" id="location" name="location" placeholder="{{ __('form.location') }}"
-                class="form-control" readonly>
-            <div id="map" style="height: 400px;"></div>
+                class="form-control">
         </div>
 
 

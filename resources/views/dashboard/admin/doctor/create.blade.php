@@ -184,7 +184,7 @@
 
         jQuery(document).ready(function() {
             $('#kt_datepicker').datepicker({
-                format: 'dd/mm/yyyy',
+                format: 'yyyy/mm/dd',
                 autoclose: true,
                 orientation: 'bottom auto',
                 todayHighlight: true,
@@ -201,16 +201,18 @@
                     contentType: false,
                     processData: false,
                     success: function(response) {
-                        setTimeout(function() {
-                            window.location.href = "{!! route('admin.doctors.index') !!}";
-                        }, 2000);
-                        swal.fire({
-                            position: 'top-right',
-                            type: 'success',
-                            title: 'تم حفظ العمل بنجاح',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
+                        console.log(response);
+
+                        // setTimeout(function() {
+                        //     window.location.href = "{!! route('admin.doctors.index') !!}";
+                        // }, 2000);
+                        // swal.fire({
+                        //     position: 'top-right',
+                        //     type: 'success',
+                        //     title: 'تم حفظ العمل بنجاح',
+                        //     showConfirmButton: false,
+                        //     timer: 1500
+                        // });
                     },
                     error: function(xhr) {
                         $('.is-invalid').removeClass('is-invalid');

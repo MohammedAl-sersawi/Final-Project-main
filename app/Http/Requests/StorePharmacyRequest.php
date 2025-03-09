@@ -24,9 +24,8 @@ class StorePharmacyRequest extends FormRequest
         return [
             'namear' => 'required|string|max:40',
             'nameen' => 'required|string|max:40',
-            'email' => 'required|email|max:100',
             'phone' => 'required|string|max:15',
-            'location' => 'required|string|min:10 | max:150',
+            'location' => 'required|string|min:10|max:150',
             'type' => 'required|in:external,internal',
         ];
     }

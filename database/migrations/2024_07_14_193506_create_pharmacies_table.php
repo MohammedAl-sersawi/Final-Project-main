@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('phone');
             $table->string('location');
             $table->enum('type', ['internal', 'external']);
-            $table->rememberToken();
             $table->timestamps();
         });
     }
